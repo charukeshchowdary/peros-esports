@@ -28,13 +28,18 @@
       "url": "https://play.google.com/store/apps/details?id=com.perosesports.app"
     }
   ],
-  "prefer_related_applications": false,
   "scope_extensions": [
     {
-      "origin": "*.vercel.app"
+      "origin": "https://*.vercel.app"
     },
     {
-      "origin": "*.perosesports.com"
+      "origin": "https://peros-esports.vercel.app"
+    },
+    {
+      "origin": "https://*.perosesports.com"
+    },
+    {
+      "origin": "https://chat.whatsapp.com"
     }
   ],
   "protocol_handlers": [
@@ -149,6 +154,7 @@
       "label": "Peros Esports Championship Arena & Slots"
     }
   ],
+  "prefer_related_applications": false,
   "shortcuts": [
     {
       "name": "Tournaments Lobby",
