@@ -20,6 +20,20 @@
   "launch_handler": {
     "client_mode": "auto"
   },
+  "scope_extensions": [
+    {
+      "origin": "*.vercel.app"
+    },
+    {
+      "origin": "*.perosesports.com"
+    }
+  ],
+  "protocol_handlers": [
+    {
+      "protocol": "web+peros",
+      "url": "./#tournaments-lobby?event=%s"
+    }
+  ],
   "iarc_rating_id": "e84b072d-71b3-4d3e-86ae-31a8ec4e53b7",
   "related_applications": [
     {
