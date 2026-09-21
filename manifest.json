@@ -1,26 +1,110 @@
 {
-  "name": "Peros Esports",
+  "$schema": "https://json.schemastore.org/web-manifest-combined.json",
+  "name": "Peros Esports - Tournaments & Scrims",
   "short_name": "Peros Esports",
-  "description": "Official Peros Esports Platform & Tournament Arena - Legacy Starts Here!",
+  "description": "Official Peros Esports Platform & Tournament Arena. Daily Free Fire MAX, BGMI, and Clash Squad custom scrims with instant cash prizes via UPI!",
+  "id": "/?source=pwa",
   "start_url": "./index.html",
   "scope": "./",
   "display": "standalone",
-  "background_color": "#07080B",
+  "display_override": ["window-controls-overlay", "standalone", "minimal-ui"],
+  "background_color": "#080A10",
   "theme_color": "#FF5500",
   "orientation": "portrait-primary",
+  "lang": "en-US",
+  "dir": "ltr",
+  "categories": ["games", "entertainment", "sports"],
   "icons": [
+    {
+      "src": "assets/peros-logo.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "assets/peros-logo.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "assets/peros-logo.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "assets/peros-logo.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "assets/peros-logo.png",
+      "sizes": "144x144",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "assets/peros-logo.png",
+      "sizes": "96x96",
+      "type": "image/png",
+      "purpose": "any"
+    },
     {
       "src": "assets/peros-logo.jpg",
       "sizes": "512x512",
       "type": "image/jpeg",
       "purpose": "any maskable"
-    },
-    {
-      "src": "assets/peros-logo.jpg",
-      "sizes": "192x192",
-      "type": "image/jpeg",
-      "purpose": "any maskable"
     }
   ],
-  "categories": ["games", "entertainment", "sports"]
+  "screenshots": [
+    {
+      "src": "assets/peros-logo.png",
+      "sizes": "1080x1920",
+      "type": "image/png",
+      "form_factor": "narrow",
+      "label": "Peros Esports Mobile Tournament Lobby"
+    },
+    {
+      "src": "assets/peros-logo.png",
+      "sizes": "1920x1080",
+      "type": "image/png",
+      "form_factor": "wide",
+      "label": "Peros Esports Championship Arena & Slots"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Tournaments Lobby",
+      "short_name": "Lobbies",
+      "description": "View active Free Fire & BGMI tournaments",
+      "url": "./#tournaments-lobby",
+      "icons": [{ "src": "assets/peros-logo.png", "sizes": "192x192" }]
+    },
+    {
+      "name": "Live Arena Tracker",
+      "short_name": "Arena",
+      "description": "Check live squad slot allocations",
+      "url": "./#match-arena",
+      "icons": [{ "src": "assets/peros-logo.png", "sizes": "192x192" }]
+    },
+    {
+      "name": "Community Feed",
+      "short_name": "Blogs",
+      "description": "Watch clutch gameplay reels and stories",
+      "url": "./#esports-blog",
+      "icons": [{ "src": "assets/peros-logo.png", "sizes": "192x192" }]
+    },
+    {
+      "name": "Organizer WhatsApp",
+      "short_name": "Support",
+      "description": "24/7 Organizer WhatsApp Helpline",
+      "url": "./#contact-us",
+      "icons": [{ "src": "assets/peros-logo.png", "sizes": "192x192" }]
+    }
+  ],
+  "prefer_related_applications": false,
+  "related_applications": [],
+  "handle_links": "preferred"
 }
