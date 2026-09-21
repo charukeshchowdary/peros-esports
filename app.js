@@ -2740,6 +2740,21 @@ Good luck and Clutch Hard! 🔥🏆`;
     document.getElementById('tour-banner-file-input')?.addEventListener('change', (e) => this.handleTournamentBannerUpload(e));
   }
 
+  setActiveMobileNav(el) {
+    window.sfx?.playClick();
+    document.querySelectorAll('.mobile-nav-item').forEach(item => item.classList.remove('active'));
+    if (el) el.classList.add('active');
+  }
+
+  handleMobileProfileClick() {
+    window.sfx?.playClick();
+    if (this.currentUser) {
+      this.openMySquadsModal();
+    } else {
+      this.openAuthModal('login');
+    }
+  }
+
   escapeHtml(str) {
     if (!str) return '';
     return String(str)
@@ -2755,3 +2770,4 @@ Good luck and Clutch Hard! 🔥🏆`;
 window.addEventListener('DOMContentLoaded', () => {
   window.app = new TournamentApp();
 });
+

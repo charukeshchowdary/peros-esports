@@ -2,10 +2,14 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
   <title>🔥 PEROS ESPORTS | India's Premier Gaming Tournaments & Scrims Arena</title>
   <meta name="description" content="Peros Esports is India's leading gaming tournament platform. Join daily Free Fire MAX, BGMI, Clash Squad, and Valorant tournaments with instant cash prizes via UPI!">
-  <meta name="theme-color" content="#FF5500">
+  <meta name="theme-color" content="#080A10">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Peros Esports">
   
   <!-- PWA Manifest & App Icons -->
   <link rel="manifest" href="manifest.json">
@@ -20,7 +24,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
   <!-- Stylesheets -->
-  <link rel="stylesheet" href="styles.css?v=20260921_14">
+  <link rel="stylesheet" href="styles.css?v=20260921_15">
   
   <!-- Favicon -->
   <link rel="icon" href="assets/peros-logo.png" type="image/png">
@@ -1579,9 +1583,41 @@
     </div>
   </div>
 
+  <!-- =========================================================================
+       MOBILE APP BOTTOM NAVIGATION BAR (NATIVE PHONE GAMING EXPERIENCE)
+       ========================================================================= -->
+  <nav class="mobile-bottom-nav" id="mobile-bottom-nav">
+    <a href="#overview" class="mobile-nav-item active" id="mob-nav-home" onclick="app.setActiveMobileNav(this)">
+      <div class="mobile-nav-icon"><i class="fa-solid fa-house"></i></div>
+      <span class="mobile-nav-label">Home</span>
+    </a>
+    <a href="#tournaments-lobby" class="mobile-nav-item" id="mob-nav-lobbies" onclick="app.setActiveMobileNav(this)">
+      <div class="mobile-nav-icon"><i class="fa-solid fa-gamepad"></i></div>
+      <span class="mobile-nav-label">Lobbies</span>
+    </a>
+    <a href="#match-arena" class="mobile-nav-item" id="mob-nav-arena" onclick="app.setActiveMobileNav(this)">
+      <div class="mobile-nav-icon"><i class="fa-solid fa-crosshairs"></i></div>
+      <span class="mobile-nav-label">Arena</span>
+    </a>
+    <a href="#esports-blog" class="mobile-nav-item" id="mob-nav-feed" onclick="app.setActiveMobileNav(this)">
+      <div class="mobile-nav-icon"><i class="fa-solid fa-fire"></i></div>
+      <span class="mobile-nav-label">Feed</span>
+    </a>
+    <a href="javascript:void(0)" class="mobile-nav-item" id="mob-nav-profile" onclick="app.handleMobileProfileClick()">
+      <div class="mobile-nav-icon"><i class="fa-solid fa-user-shield"></i></div>
+      <span class="mobile-nav-label" id="mob-nav-profile-label">Account</span>
+    </a>
+  </nav>
+
+  <!-- MOBILE FLOATING 24/7 WHATSAPP HELPLINE -->
+  <a href="https://chat.whatsapp.com/C5nbq7MBvuJFq7HSsElJTb?s=cl&p=a&mlu=4&ilr=4" target="_blank" rel="noopener" class="mobile-fab-whatsapp" title="24/7 Organizer WhatsApp Helpline">
+    <i class="fa-brands fa-whatsapp"></i>
+    <span class="fab-pulse-ring"></span>
+  </a>
+
   <!-- Scripts -->
-  <script src="sfx.js?v=20260921_14"></script>
-  <script src="particles.js?v=20260921_14"></script>
-  <script src="app.js?v=20260921_14"></script>
+  <script src="sfx.js?v=20260921_15"></script>
+  <script src="particles.js?v=20260921_15"></script>
+  <script src="app.js?v=20260921_15"></script>
 </body>
 </html>

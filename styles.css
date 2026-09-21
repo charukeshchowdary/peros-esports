@@ -3774,61 +3774,422 @@ body {
   border-color: var(--fire-orange);
 }
 
-@media (max-width: 900px) {
-  .contact-grid {
-    grid-template-columns: 1fr;
-  }
-  .section-header-flex {
-    flex-direction: column;
-    align-items: flex-start;
-  }
+/* ==========================================================================
+   MOBILE NATIVE GAMING APP DESIGN SYSTEM & BOTTOM NAVIGATION
+   ========================================================================== */
+
+/* Mobile Bottom Navigation Bar */
+.mobile-bottom-nav {
+  display: none;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 62px;
+  background: rgba(8, 10, 16, 0.97);
+  backdrop-filter: blur(30px);
+  -webkit-backdrop-filter: blur(30px);
+  border-top: 1px solid rgba(255, 85, 0, 0.35);
+  z-index: 999;
+  align-items: center;
+  justify-content: space-around;
+  padding: 4px 6px calc(4px + env(safe-area-inset-bottom));
+  box-shadow: 0 -8px 30px rgba(0, 0, 0, 0.85);
 }
 
-@media (max-width: 1080px) {
-  .nav-links {
-    gap: 2px;
+.mobile-nav-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+  color: #8C9BAE;
+  text-decoration: none;
+  font-family: var(--font-heading);
+  flex: 1;
+  padding: 6px 0;
+  position: relative;
+  transition: var(--transition-fast);
+  -webkit-tap-highlight-color: transparent;
+}
+
+.mobile-nav-icon {
+  font-size: 1.2rem;
+  transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1), color 0.2s ease;
+  position: relative;
+}
+
+.mobile-nav-label {
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.3px;
+  text-transform: uppercase;
+}
+
+.mobile-nav-item.active {
+  color: #FFF;
+}
+
+.mobile-nav-item.active .mobile-nav-icon {
+  color: var(--fire-orange);
+  transform: translateY(-2px) scale(1.15);
+  filter: drop-shadow(0 0 8px rgba(255, 85, 0, 0.8));
+}
+
+.mobile-nav-item.active .mobile-nav-label {
+  color: var(--fire-amber);
+  font-weight: 800;
+}
+
+.mobile-nav-item.active::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 24px;
+  height: 3px;
+  background: linear-gradient(90deg, var(--fire-orange), var(--fire-amber));
+  border-radius: 0 0 4px 4px;
+  box-shadow: 0 0 10px var(--fire-orange);
+}
+
+/* Floating 24/7 WhatsApp Helpline FAB */
+.mobile-fab-whatsapp {
+  position: fixed;
+  bottom: 76px;
+  right: 16px;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #25D366, #128C7E);
+  color: #FFF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  text-decoration: none;
+  box-shadow: 0 6px 20px rgba(37, 211, 102, 0.55);
+  z-index: 998;
+  transition: var(--transition-bounce);
+  -webkit-tap-highlight-color: transparent;
+}
+
+.mobile-fab-whatsapp:hover, .mobile-fab-whatsapp:active {
+  transform: scale(1.1);
+  box-shadow: 0 0 25px rgba(37, 211, 102, 0.85);
+}
+
+.fab-pulse-ring {
+  position: absolute;
+  top: -4px;
+  left: -4px;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  border: 2px solid rgba(37, 211, 102, 0.6);
+  animation: pulse-ring 2s cubic-bezier(0.215, 0.61, 0.355, 1) infinite;
+  pointer-events: none;
+}
+
+@keyframes pulse-ring {
+  0% { transform: scale(0.95); opacity: 0.8; }
+  50% { transform: scale(1.2); opacity: 0; }
+  100% { transform: scale(0.95); opacity: 0; }
+}
+
+/* ==========================================================================
+   RESPONSIVE PHONE ADAPTATIONS (@media max-width: 768px & 480px)
+   ========================================================================== */
+@media (max-width: 768px) {
+  body {
+    padding-bottom: 74px; /* Space for Bottom Navigation */
   }
-  .nav-link {
-    font-size: 0.75rem;
-    padding: 3px 5px;
+
+  .mobile-bottom-nav {
+    display: flex;
   }
+
+  .container {
+    padding: 0 12px;
+  }
+
+  /* Top Announcement Ticker */
+  .top-announcement-ticker {
+    padding: 4px 10px;
+    font-size: 0.72rem;
+  }
+
+  .ticker-badge {
+    font-size: 0.65rem;
+    padding: 1px 6px;
+  }
+
+  .ticker-text {
+    font-size: 0.7rem;
+    max-width: 220px;
+  }
+
+  .ticker-link {
+    font-size: 0.68rem;
+    padding: 2px 7px;
+  }
+
+  /* Mobile App Bar */
+  .navbar {
+    padding: 6px 0;
+  }
+
+  .navbar .container {
+    padding: 0 10px;
+    gap: 6px;
+  }
+
+  .brand-logo-frame {
+    width: 34px;
+    height: 34px;
+  }
+
+  .brand-title {
+    font-size: 0.88rem;
+  }
+
   .brand-subtitle {
     display: none;
   }
-  .event-switcher-select {
-    max-width: 100px;
+
+  .event-switcher-box {
+    display: none; /* Accessible in bottom nav / hero lobby */
+  }
+
+  .nav-links {
+    display: none; /* Replaced by bottom nav */
+  }
+
+  .btn-install-pwa {
+    display: none; /* Handled via hero / banner */
+  }
+
+  .btn-icon {
+    height: 28px;
+    padding: 0 6px;
+    font-size: 0.72rem;
+  }
+
+  .btn-user-auth {
+    font-size: 0.74rem;
+    padding: 5px 10px;
+  }
+
+  /* Hero Section for Phone */
+  .hero-section {
+    padding: 24px 0 36px;
+    text-align: center;
+  }
+
+  .hero-logo-banner {
+    margin-bottom: 14px;
+  }
+
+  .hero-brand-logo-wrap {
+    width: 90px;
+    height: 90px;
+  }
+
+  .hero-badge-wrap .badge {
+    font-size: 0.68rem;
+    padding: 4px 12px;
+    white-space: normal;
+    text-align: center;
+  }
+
+  .hero-event-badges {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 6px;
+    margin: 12px 0;
+  }
+
+  .hero-event-badge {
+    font-size: 0.7rem;
+    padding: 3px 8px;
+  }
+
+  .hero-subheading {
+    font-size: 0.8rem;
+    letter-spacing: 1.5px;
+  }
+
+  .hero-main-title {
+    font-size: 1.65rem;
+    letter-spacing: 0.5px;
+    line-height: 1.15;
+    margin-bottom: 6px;
+  }
+
+  .hero-slogan {
+    font-size: 0.85rem;
+    margin-bottom: 18px;
+  }
+
+  /* Game Filter Pills Horizontal Scroll Strip */
+  .game-filter-pills-bar {
+    display: flex;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scroll-snap-type: x mandatory;
+    gap: 8px;
+    padding: 4px 2px 10px;
+    margin-bottom: 20px;
+    justify-content: flex-start;
+  }
+
+  .game-filter-pills-bar::-webkit-scrollbar {
+    display: none;
+  }
+
+  .game-pill {
+    flex-shrink: 0;
+    scroll-snap-align: start;
+    font-size: 0.78rem;
+    padding: 6px 12px;
+    border-radius: var(--radius-full);
+  }
+
+  /* Key Metrics Matrix */
+  .hero-stats-bar {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
+    margin-bottom: 20px;
+  }
+
+  .stat-pill {
+    padding: 8px 10px;
+  }
+
+  .stat-pill-val {
+    font-size: 1.1rem;
+  }
+
+  .stat-pill-label {
+    font-size: 0.65rem;
+  }
+
+  .hero-prize-ribbon {
+    padding: 12px 14px;
+    margin-bottom: 22px;
+  }
+
+  .prize-amount {
+    font-size: 1.7rem;
+  }
+
+  .hero-cta-group {
+    flex-direction: column;
+    width: 100%;
+    gap: 10px;
+  }
+
+  .hero-cta-group .btn {
+    width: 100%;
+    font-size: 0.95rem;
+    padding: 12px 16px;
+    justify-content: center;
+  }
+
+  /* Tournament Cards & Lobby */
+  .tournament-cards-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .tournament-card {
+    border-radius: 16px;
+  }
+
+  .tournament-card-header {
+    height: 160px;
+  }
+
+  .tournament-card-body {
+    padding: 18px 16px;
+  }
+
+  /* 12-Slot Battlefield Tracker */
+  .slots-grid {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .slot-card {
+    padding: 14px 14px;
+    border-radius: 14px;
+  }
+
+  /* Prize Podium */
+  .prize-podium-grid {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  .prize-card {
+    padding: 22px 18px;
+  }
+
+  /* Contact Us Grid */
+  .contact-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .contact-info-card, .contact-form-card {
+    padding: 22px 16px;
+  }
+
+  .section-header-flex {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
+  }
+
+  .btn-post-blog {
+    width: 100%;
+    justify-content: center;
+  }
+
+  /* Mobile Bottom Sheet Modals */
+  .modal-container {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    max-width: 100%;
+    max-height: 88vh;
+    border-radius: 22px 22px 0 0;
+    padding: 24px 18px 30px;
+    margin: 0;
+    overflow-y: auto;
+    border-bottom: none;
+    animation: slideUpModal 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  @keyframes slideUpModal {
+    from { transform: translateY(100%); }
+    to { transform: translateY(0); }
   }
 }
 
-@media (max-width: 820px) {
-  .event-switcher-box {
-    display: none;
+@media (max-width: 420px) {
+  .hero-main-title {
+    font-size: 1.45rem;
   }
   .ticker-text {
-    font-size: 0.7rem;
+    max-width: 150px;
+  }
+  .hero-stats-bar {
+    grid-template-columns: 1fr 1fr;
   }
 }
 
-@media (max-width: 640px) {
-  .nav-links {
-    display: none;
-  }
-  .brand-title {
-    font-size: 0.85rem;
-  }
-  .btn-install-pwa {
-    display: none;
-  }
-  .top-announcement-ticker {
-    padding: 4px 6px;
-  }
-  .ticker-badge {
-    font-size: 0.65rem;
-    padding: 1px 5px;
-  }
-  .ticker-link {
-    font-size: 0.68rem;
-    padding: 2px 6px;
-  }
-}
 
