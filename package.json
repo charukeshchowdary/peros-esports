@@ -1,0 +1,17 @@
+{
+  "name": "peros-esports",
+  "version": "1.0.0",
+  "description": "Peros Esports - Where Every Clutch Counts!",
+  "main": "index.html",
+  "scripts": {
+    "prepare-www": "node -e \"const fs=require('fs'); fs.rmSync('www', {recursive:true, force:true}); fs.mkdirSync('www', {recursive:true}); if(fs.existsSync('assets')) fs.cpSync('assets', 'www/assets', {recursive:true, force:true}); ['index.html','styles.css','app.js','sfx.js','particles.js','manifest.json','sw.js','peros-logo.png','peros-logo.jpg'].forEach(f => { if(fs.existsSync(f)) fs.copyFileSync(f, 'www/' + f); }); console.log('WWW prepared successfully!');\"",
+    "cap:build": "npm run prepare-www && npx cap sync android"
+  },
+  "dependencies": {
+    "@capacitor/android": "^7.0.1",
+    "@capacitor/core": "^7.0.1"
+  },
+  "devDependencies": {
+    "@capacitor/cli": "^7.0.1"
+  }
+}
