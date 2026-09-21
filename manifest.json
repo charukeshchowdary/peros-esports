@@ -20,6 +20,15 @@
   "launch_handler": {
     "client_mode": "auto"
   },
+  "iarc_rating_id": "e84b072d-71b3-4d3e-86ae-31a8ec4e53b7",
+  "related_applications": [
+    {
+      "platform": "play",
+      "id": "com.perosesports.app",
+      "url": "https://play.google.com/store/apps/details?id=com.perosesports.app"
+    }
+  ],
+  "prefer_related_applications": false,
   "scope_extensions": [
     {
       "origin": "*.vercel.app"
@@ -34,13 +43,6 @@
       "url": "./#tournaments-lobby?event=%s"
     }
   ],
-  "iarc_rating_id": "e84b072d-71b3-4d3e-86ae-31a8ec4e53b7",
-  "related_applications": [
-    {
-      "platform": "play",
-      "id": "com.perosesports.app"
-    }
-  ],
   "share_target": {
     "action": "./#esports-blog",
     "method": "GET",
@@ -50,6 +52,49 @@
       "url": "url"
     }
   },
+  "file_handlers": [
+    {
+      "action": "./#esports-blog",
+      "name": "Esports Media & Gameplay Clips",
+      "icons": [
+        {
+          "src": "assets/icon-96.png",
+          "sizes": "96x96"
+        }
+      ],
+      "accept": {
+        "image/*": [".png", ".jpg", ".jpeg", ".webp"]
+      }
+    }
+  ],
+  "widgets": [
+    {
+      "name": "Peros Live Matches",
+      "description": "Live Free Fire & BGMI Tournament Tracker",
+      "tag": "peros-tournament-widget",
+      "template": "widget-template",
+      "ms_ac_template": "assets/widget.json",
+      "data": "assets/widget-data.json",
+      "type": "application/json",
+      "screenshots": [
+        {
+          "src": "assets/screenshot-mobile.png",
+          "sizes": "1080x1920",
+          "label": "Live Tournament Slots"
+        }
+      ],
+      "icons": [
+        {
+          "src": "assets/icon-192.png",
+          "sizes": "192x192"
+        }
+      ]
+    }
+  ],
+  "note_taking": {
+    "new_note_url": "./#esports-blog"
+  },
+  "handle_links": "preferred",
   "icons": [
     {
       "src": "assets/icon-512.png",
@@ -133,7 +178,5 @@
       "url": "./#contact-us",
       "icons": [{ "src": "assets/icon-192.png", "sizes": "192x192" }]
     }
-  ],
-  "prefer_related_applications": false,
-  "handle_links": "preferred"
+  ]
 }
