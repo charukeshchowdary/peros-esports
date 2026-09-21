@@ -30,13 +30,13 @@
   ],
   "scope_extensions": [
     {
-      "origin": "https://*.vercel.app"
+      "origin": "https://peros-esports-fd12.vercel.app"
     },
     {
       "origin": "https://peros-esports.vercel.app"
     },
     {
-      "origin": "https://*.perosesports.com"
+      "origin": "https://*.vercel.app"
     },
     {
       "origin": "https://chat.whatsapp.com"
