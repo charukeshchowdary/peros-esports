@@ -1,0 +1,26 @@
+{
+  "name": "Peros Esports",
+  "short_name": "Peros Esports",
+  "description": "Official Peros Esports Platform & Tournament Arena - Legacy Starts Here!",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#07080B",
+  "theme_color": "#FF5500",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "assets/peros-logo.jpg",
+      "sizes": "512x512",
+      "type": "image/jpeg",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "assets/peros-logo.jpg",
+      "sizes": "192x192",
+      "type": "image/jpeg",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["games", "entertainment", "sports"]
+}

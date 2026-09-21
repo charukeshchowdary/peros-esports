@@ -1,0 +1,1587 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>🔥 PEROS ESPORTS | India's Premier Gaming Tournaments & Scrims Arena</title>
+  <meta name="description" content="Peros Esports is India's leading gaming tournament platform. Join daily Free Fire MAX, BGMI, Clash Squad, and Valorant tournaments with instant cash prizes via UPI!">
+  <meta name="theme-color" content="#FF5500">
+  
+  <!-- PWA Manifest & App Icons -->
+  <link rel="manifest" href="manifest.json">
+  <link rel="apple-touch-icon" href="assets/peros-logo.png">
+  
+  <!-- Google Fonts for Agent Esports Typography -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700;800;900&family=Outfit:wght@400;500;600;700;800;900&family=Teko:wght@500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="styles.css?v=20260921_14">
+  
+  <!-- Favicon -->
+  <link rel="icon" href="assets/peros-logo.png" type="image/png">
+</head>
+<body>
+  <!-- Ambient Particle Canvas -->
+  <canvas id="bg-canvas"></canvas>
+
+  <!-- TOP ANNOUNCEMENT TICKER -->
+  <div class="top-announcement-ticker">
+    <div class="ticker-content">
+      <span class="ticker-badge">🔥 LIVE UPDATE</span>
+      <span class="ticker-text">PEROS ESPORTS CHAMPIONSHIP 2026 IS LIVE • DAILY CUSTOM SCRIMS & HIGH STAKES SHOWDOWNS • INSTANT UPI PAYOUTS WITHIN 30 MINS ⚡</span>
+      <a href="https://chat.whatsapp.com/C5nbq7MBvuJFq7HSsElJTb?s=cl&p=a&mlu=4&ilr=4" target="_blank" rel="noopener" class="ticker-link">JOIN WHATSAPP <i class="fa-brands fa-whatsapp"></i></a>
+    </div>
+  </div>
+
+  <div class="app-wrapper">
+    <!-- NAVIGATION BAR (AGENT ESPORTS STYLE) -->
+    <header class="navbar">
+      <div class="container navbar-container-fluid">
+        <div class="nav-left-group">
+          <a href="#" class="nav-brand">
+            <div class="brand-logo-frame">
+              <img src="assets/peros-logo.png" onerror="this.src='peros-logo.png'" alt="Peros Esports Logo" class="nav-brand-logo-img">
+            </div>
+            <div class="brand-text">
+              <span class="brand-title">PEROS ESPORTS</span>
+              <span class="brand-subtitle">LEGACY STARTS HERE</span>
+            </div>
+          </a>
+
+          <!-- Active Event Switcher Capsule -->
+          <div class="event-switcher-box" title="Switch between active tournaments">
+            <span class="event-switcher-label"><i class="fa-solid fa-gamepad"></i></span>
+            <select id="event-switcher-select" class="event-switcher-select">
+              <!-- Dynamically populated -->
+            </select>
+          </div>
+        </div>
+
+        <ul class="nav-links">
+          <li><a href="#tournaments-lobby" class="nav-link"><span>🎮</span> Tournaments</a></li>
+          <li><a href="#match-arena" class="nav-link active"><span>🎯</span> Arena</a></li>
+          <li><a href="#esports-blog" class="nav-link"><span>📰</span> Blogs</a></li>
+          <li><a href="#news-guides" class="nav-link"><span>🛡️</span> Rules</a></li>
+          <li><a href="#about-us" class="nav-link"><span>👑</span> About</a></li>
+          <li><a href="#contact-us" class="nav-link"><span>📩</span> Contact</a></li>
+        </ul>
+
+        <div class="nav-actions">
+          <!-- Install App Button -->
+          <button id="btn-install-app" class="btn-install-pwa" title="Install Peros Esports App on phone or PC">
+            <i class="fa-solid fa-mobile-screen-button"></i> Install
+          </button>
+
+          <!-- SFX Toggle Button -->
+          <button id="btn-toggle-sound" class="btn-icon" title="Toggle Sound Effects">
+            🔊 SFX
+          </button>
+          
+          <!-- Unified High-Visibility Log In / Sign In Button (When Logged Out) -->
+          <button id="btn-nav-auth" class="btn-user-auth" title="Click to Sign In or Create Account">
+            <i class="fa-solid fa-right-to-bracket"></i> Sign In / Log In
+          </button>
+
+          <!-- User Logged In Profile Capsule with Direct Standalone Logout Button -->
+          <div id="nav-user-capsule" class="nav-user-profile" style="display:none;" title="Click to view Account / Squads">
+            <div class="nav-user-avatar" id="nav-user-avatar">P</div>
+            <span class="nav-user-name" id="nav-user-display-name">Player</span>
+            <button id="btn-nav-logout" class="btn-nav-logout" onclick="event.stopPropagation(); app.handleUserLogout();" title="Log Out from Account">
+              <i class="fa-solid fa-power-off"></i> Log Out
+            </button>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <!-- =========================================================================
+           SECTION 1: HERO SPOTLIGHT (AGENT ESPORTS HIGH-IMPACT HEADER)
+           ========================================================================= -->
+      <section class="hero-section" id="overview">
+        <div class="hero-glow-back"></div>
+        <div class="container">
+          <!-- Official Animated Logo Emblem -->
+          <div class="hero-logo-banner">
+            <div class="hero-brand-logo-wrap">
+              <img src="assets/peros-logo.png" onerror="this.src='peros-logo.png'" alt="Peros Esports" class="hero-brand-logo" id="hero-main-logo-img">
+            </div>
+          </div>
+
+          <div class="hero-badge-wrap">
+            <span class="badge badge-live">
+              <span class="pulse-dot"></span>
+              INDIA'S PREMIER ESPORTS ARENA • HIGH STAKES TOURNAMENTS
+            </span>
+          </div>
+
+          <!-- Dynamic Event Attributes Badges -->
+          <div class="hero-event-badges" id="hero-event-badges">
+            <span class="hero-event-badge" id="badge-game-mode" style="color:var(--cyber-cyan); border-color:rgba(0,240,255,0.4);"><i class="fa-solid fa-crosshairs"></i> BATTLE ROYALE</span>
+            <span class="hero-event-badge" id="badge-game-map" style="color:var(--fire-amber); border-color:rgba(255,170,0,0.4);"><i class="fa-solid fa-map-location-dot"></i> BERMUDA FULL MAP</span>
+            <span class="hero-event-badge" id="badge-game-format" style="color:var(--gold-champion); border-color:rgba(255,215,0,0.4);"><i class="fa-solid fa-users"></i> SQUAD (4v4)</span>
+          </div>
+
+          <div class="hero-title-group">
+            <div class="hero-subheading">
+              <span>🔥🏆</span> OFFICIAL TOURNAMENT <span>🏆🔥</span>
+            </div>
+            <h1 class="hero-main-title">
+              <span class="title-fire-gradient" id="hero-title-main">PEROS ESPORTS CHAMPIONSHIP 2026</span>
+            </h1>
+            <p class="hero-slogan" id="hero-slogan">
+              🎮 Where Every Clutch Counts! ⚡
+            </p>
+          </div>
+
+          <!-- Quick Game Mode Filter Pills (Agent Esports style) -->
+          <div class="game-filter-pills-bar">
+            <button class="game-pill active" onclick="app.filterTournamentsByGame('All')"><i class="fa-solid fa-fire"></i> All Arenas</button>
+            <button class="game-pill" onclick="app.filterTournamentsByGame('Free Fire')"><i class="fa-solid fa-crosshairs"></i> Free Fire MAX</button>
+            <button class="game-pill" onclick="app.filterTournamentsByGame('Clash Squad')"><i class="fa-solid fa-bolt"></i> Clash Squad 4v4</button>
+            <button class="game-pill" onclick="app.filterTournamentsByGame('BGMI')"><i class="fa-solid fa-shield-halved"></i> BGMI</button>
+            <button class="game-pill" onclick="app.filterTournamentsByGame('Duo')"><i class="fa-solid fa-user-group"></i> Duo / Solo</button>
+          </div>
+
+          <!-- Tournament Key Metrics Matrix -->
+          <div class="hero-stats-bar">
+            <div class="stat-pill">
+              <div class="stat-pill-icon"><i class="fa-solid fa-users"></i></div>
+              <div class="stat-pill-data">
+                <div class="stat-pill-val cyan" id="hero-stat-players">48 PLAYERS</div>
+                <div class="stat-pill-label" id="hero-stat-squads-label">12 Squads (4/Team)</div>
+              </div>
+            </div>
+
+            <div class="stat-pill">
+              <div class="stat-pill-icon"><i class="fa-solid fa-trophy"></i></div>
+              <div class="stat-pill-data">
+                <div class="stat-pill-val gold" id="stat-total-prize">₹1,440</div>
+                <div class="stat-pill-label">Total Prize Pool</div>
+              </div>
+            </div>
+
+            <div class="stat-pill">
+              <div class="stat-pill-icon"><i class="fa-solid fa-ticket"></i></div>
+              <div class="stat-pill-data">
+                <div class="stat-pill-val orange" id="stat-entry-fee">₹120</div>
+                <div class="stat-pill-label">Entry Fee / Squad</div>
+              </div>
+            </div>
+
+            <div class="stat-pill">
+              <div class="stat-pill-icon"><i class="fa-solid fa-chart-pie"></i></div>
+              <div class="stat-pill-data">
+                <div class="stat-pill-val" id="stat-slots-filled">0 / 12</div>
+                <div class="stat-pill-label">Slots Claimed</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Live Countdown Timer -->
+          <div class="countdown-container">
+            <div class="countdown-title">
+              <i class="fa-solid fa-stopwatch"></i> MATCH KICKOFF COUNTDOWN:
+            </div>
+            <div class="countdown-grid">
+              <div class="countdown-box">
+                <div class="countdown-num" id="cd-days">03</div>
+                <div class="countdown-unit">Days</div>
+              </div>
+              <div class="countdown-box">
+                <div class="countdown-num" id="cd-hours">14</div>
+                <div class="countdown-unit">Hours</div>
+              </div>
+              <div class="countdown-box">
+                <div class="countdown-num" id="cd-mins">35</div>
+                <div class="countdown-unit">Minutes</div>
+              </div>
+              <div class="countdown-box">
+                <div class="countdown-num" id="cd-secs">48</div>
+                <div class="countdown-unit">Seconds</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Hero Action Buttons -->
+          <div class="hero-actions">
+            <button id="btn-hero-register" class="btn btn-primary btn-lg">
+              <span>🔥</span> REGISTER SQUAD <span id="hero-entry-cta-fee">(₹120)</span>
+            </button>
+            <button id="btn-hero-install-app" class="btn btn-outline-cyan btn-lg" onclick="app.triggerPWAInstall()">
+              <i class="fa-solid fa-mobile-screen-button"></i> DOWNLOAD APP
+            </button>
+            <a href="https://chat.whatsapp.com/C5nbq7MBvuJFq7HSsElJTb?s=cl&p=a&mlu=4&ilr=4" id="link-join-wa-group" target="_blank" rel="noopener" class="btn btn-whatsapp btn-lg">
+              <i class="fa-brands fa-whatsapp"></i> JOIN OFFICIAL WHATSAPP
+            </a>
+            <a href="#tournaments-lobby" class="btn btn-secondary btn-lg">
+              <i class="fa-solid fa-layer-group"></i> BROWSE ALL LOBBIES
+            </a>
+          </div>
+
+          <!-- Platform Trust Bar (Agent Esports metrics) -->
+          <div class="platform-trust-bar">
+            <div class="trust-item">
+              <div class="trust-num">15,000+</div>
+              <div class="trust-label">Active Esports Gamers</div>
+            </div>
+            <div class="trust-divider"></div>
+            <div class="trust-item">
+              <div class="trust-num">₹5,00,000+</div>
+              <div class="trust-label">Prize Money Distributed</div>
+            </div>
+            <div class="trust-divider"></div>
+            <div class="trust-item">
+              <div class="trust-num">100%</div>
+              <div class="trust-label">Instant UPI Transfers</div>
+            </div>
+            <div class="trust-divider"></div>
+            <div class="trust-item">
+              <div class="trust-num">24/7</div>
+              <div class="trust-label">Organizer Support</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- =========================================================================
+           SECTION 2: TOURNAMENTS & SCRIMS LOBBY (AGENT ESPORTS STYLE)
+           ========================================================================= -->
+      <section class="section lobby-section" id="tournaments-lobby">
+        <div class="container">
+          <div class="section-header">
+            <span class="section-tag">Competitive Gaming</span>
+            <h2 class="section-title">TOURNAMENTS <span>& SCRIMS HUB</span></h2>
+            <p class="section-desc">Select a tournament lobby, check rules, claim your squad slot, and battle for real cash prizes!</p>
+          </div>
+
+          <!-- Lobby Status Filters -->
+          <div class="lobby-filter-bar">
+            <div class="filter-tabs-group">
+              <button class="filter-tab-btn active" onclick="app.filterTournamentsStatus('all')">All Events</button>
+              <button class="filter-tab-btn" onclick="app.filterTournamentsStatus('live')">🔴 Live Now</button>
+              <button class="filter-tab-btn" onclick="app.filterTournamentsStatus('upcoming')">⏳ Open for Entry</button>
+            </div>
+          </div>
+
+          <!-- Tournament Cards Grid (Populated dynamically) -->
+          <div class="tournament-cards-grid" id="tournaments-lobby-grid">
+            <!-- Rendered by app.js -->
+          </div>
+        </div>
+      </section>
+
+      <!-- =========================================================================
+           SECTION 3: LIVE ACTIVE ARENA & 12-SLOT TRACKER
+           ========================================================================= -->
+      <section class="section arena-section" id="match-arena">
+        <div class="container">
+          <div class="section-header">
+            <span class="section-tag">Match Battlefield</span>
+            <h2 class="section-title">ACTIVE ARENA <span>SLOT TRACKER</span></h2>
+            <p class="section-desc">Live slot allocations, verified team rosters, and real-time captain badges.</p>
+          </div>
+
+          <!-- Live Slot Progress Meter -->
+          <div class="slot-meter-banner">
+            <div class="slot-meter-info">
+              <div class="slot-meter-label">Squad Slots Meter</div>
+              <div class="slot-meter-count" id="slot-meter-count"><span>0</span> / 12 SQUADS</div>
+            </div>
+            <div class="slot-progress-bar-bg">
+              <div class="slot-progress-bar-fill" id="slot-progress-bar-fill" style="width: 0%;"></div>
+            </div>
+          </div>
+
+          <!-- 12-Slot Interactive Grid -->
+          <div class="slots-grid" id="slots-grid">
+            <!-- Dynamically populated by app.js -->
+          </div>
+        </div>
+      </section>
+
+      <!-- =========================================================================
+           SECTION 4: CHAMPIONSHIP PRIZE PODIUM & SCORECARD
+           ========================================================================= -->
+      <section class="section prize-section" id="leaderboard">
+        <div class="container">
+          <div class="section-header">
+            <span class="section-tag">High Stakes Esports</span>
+            <h2 class="section-title">CHAMPIONSHIP <span>PRIZE POOL</span></h2>
+            <p class="section-desc">Clutch your way to the top and secure your share of the official cash prize pool!</p>
+          </div>
+
+          <div class="prize-podium-grid">
+            <!-- 2nd Place -->
+            <div class="podium-card second-place">
+              <div class="podium-crown-badge">🥈</div>
+              <div class="podium-rank-tag">2nd Place • Runner Up</div>
+              <div class="podium-prize-amount" id="prize-2nd">₹450</div>
+              <ul class="podium-perks-list">
+                <li><span>✅</span> Cash Transfer via UPI</li>
+                <li><span>✅</span> Match Runner Up Badge</li>
+                <li><span>✅</span> Guaranteed Next Slot</li>
+              </ul>
+            </div>
+
+            <!-- 1st Place (Champion) -->
+            <div class="podium-card first-place">
+              <div class="podium-crown-badge">👑 🥇</div>
+              <div class="podium-rank-tag gold">1st Place • CHAMPION</div>
+              <div class="podium-prize-amount gold" id="prize-1st">₹700</div>
+              <ul class="podium-perks-list">
+                <li><span>👑</span> Grand Champion Cash Prize</li>
+                <li><span>⚡</span> Instant Direct UPI Payout</li>
+                <li><span>🏆</span> Hall of Fame Showcase</li>
+                <li><span>🔥</span> Free Entry to Season Finals</li>
+              </ul>
+            </div>
+
+            <!-- 3rd Place -->
+            <div class="podium-card third-place">
+              <div class="podium-crown-badge">🥉</div>
+              <div class="podium-rank-tag">3rd Place</div>
+              <div class="podium-prize-amount" id="prize-3rd">₹290</div>
+              <ul class="podium-perks-list">
+                <li><span>✅</span> Instant UPI Cash Transfer</li>
+                <li><span>✅</span> Official 3rd Place Honors</li>
+                <li><span>✅</span> Priority Season Entry</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Total Prize Summary Banner -->
+          <div class="total-prize-banner">
+            <div class="total-prize-left">
+              <div class="total-prize-icon">🏆</div>
+              <div>
+                <div class="total-prize-label">TOTAL OFFICIAL PRIZE POOL</div>
+                <div class="total-prize-num" id="prize-total">₹1,440</div>
+              </div>
+            </div>
+            <div class="entry-fee-highlight">
+              <div class="entry-fee-label">ENTRY FEE PER SQUAD</div>
+              <div class="entry-fee-num" id="prize-entry-fee">₹120 / SQUAD</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- =========================================================================
+           SECTION 5: LIVE STREAM & WATCH CENTER (AGENT ESPORTS FEATURE)
+           ========================================================================= -->
+      <section class="section stream-section" id="watch-live">
+        <div class="container">
+          <div class="section-header">
+            <span class="section-tag">Broadcast Center</span>
+            <h2 class="section-title">WATCH <span>LIVE STREAM</span></h2>
+            <p class="section-desc">Experience every clutch moment with live official casting, pro commentary, and match highlights.</p>
+          </div>
+
+          <div class="stream-theater-card">
+            <div class="stream-video-wrap">
+              <div class="stream-live-badge"><span class="pulse-dot"></span> LIVE CASTING</div>
+              <div class="stream-placeholder-screen">
+                <img src="assets/peros-logo.png" onerror="this.src='peros-logo.png'" alt="Live Broadcast" class="stream-bg-img">
+                <div class="stream-screen-overlay">
+                  <div class="stream-play-btn" onclick="window.open('https://chat.whatsapp.com/C5nbq7MBvuJFq7HSsElJTb?s=cl&p=a&mlu=4&ilr=4', '_blank')">
+                    <i class="fa-solid fa-play"></i>
+                  </div>
+                  <h3 style="color:#FFF; font-family:var(--font-heading); margin-top:16px; font-size:1.4rem;">PEROS ESPORTS OFFICIAL LIVESTREAM</h3>
+                  <p style="color:#CBD5E0; font-size:0.9rem;">Join the official WhatsApp announcement group to get live YouTube stream links!</p>
+                  <a href="https://chat.whatsapp.com/C5nbq7MBvuJFq7HSsElJTb?s=cl&p=a&mlu=4&ilr=4" target="_blank" rel="noopener" class="btn btn-whatsapp btn-sm" style="margin-top:12px;">
+                    <i class="fa-brands fa-whatsapp"></i> Get Live Stream Link
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <div class="stream-meta-sidebar">
+              <h4 style="font-family:var(--font-heading); color:#FFF; font-size:1.2rem; margin-bottom:12px;"><i class="fa-solid fa-fire" style="color:var(--fire-orange);"></i> ARENA HIGHLIGHTS</h4>
+              
+              <div class="stream-clip-item">
+                <div class="clip-icon">⚡</div>
+                <div>
+                  <strong>1v4 INSANE SQUAD CLUTCH</strong>
+                  <div style="font-size:0.75rem; color:#8C9BAE;">Bermuda Final Circle • Season 1</div>
+                </div>
+              </div>
+
+              <div class="stream-clip-item">
+                <div class="clip-icon">🎯</div>
+                <div>
+                  <strong>AWM 360 HEADSHOT HIGHLIGHT</strong>
+                  <div style="font-size:0.75rem; color:#8C9BAE;">Purgatory Peak • Semi-Finals</div>
+                </div>
+              </div>
+
+              <div class="stream-clip-item">
+                <div class="clip-icon">👑</div>
+                <div>
+                  <strong>GRAND FINALS VICTORY PODIUM</strong>
+                  <div style="font-size:0.75rem; color:#8C9BAE;">₹1,440 Instant Payouts Ceremony</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- =========================================================================
+           SECTION 6: GAMING STORE & DIAMONDS HUB (AGENT ESPORTS STORE)
+           ========================================================================= -->
+      <section class="section shop-section" id="gaming-shop">
+        <div class="container">
+          <div class="section-header">
+            <span class="section-tag">Official Store</span>
+            <h2 class="section-title">GAMING <span>PRODUCTS & VOUCHERS</span></h2>
+            <p class="section-desc">Get official gaming top-up vouchers, Peros Esports pro jerseys, and mobile gaming gear.</p>
+          </div>
+
+          <div class="shop-grid">
+            <!-- Product 1 -->
+            <div class="product-card">
+              <div class="product-badge">BESTSELLER</div>
+              <div class="product-icon-wrap">💎</div>
+              <h4 class="product-title">Free Fire 520+52 Diamonds</h4>
+              <p class="product-desc">Instant UID Top-up for Free Fire MAX players. Direct player delivery in 5 mins.</p>
+              <div class="product-price-row">
+                <div class="product-price">₹400 <span>₹450</span></div>
+                <button class="btn btn-sm btn-primary" onclick="app.openShopCheckout('Free Fire 520 Diamonds', '₹400')">Buy Now</button>
+              </div>
+            </div>
+
+            <!-- Product 2 -->
+            <div class="product-card">
+              <div class="product-badge">INSTANT</div>
+              <div class="product-icon-wrap">🎯</div>
+              <h4 class="product-title">Free Fire 1060+106 Diamonds</h4>
+              <p class="product-desc">Mega diamond pack for character skills, gun skins, and royal pass unlock.</p>
+              <div class="product-price-row">
+                <div class="product-price">₹800 <span>₹900</span></div>
+                <button class="btn btn-sm btn-primary" onclick="app.openShopCheckout('Free Fire 1060 Diamonds', '₹800')">Buy Now</button>
+              </div>
+            </div>
+
+            <!-- Product 3 -->
+            <div class="product-card">
+              <div class="product-badge">MERCH</div>
+              <div class="product-icon-wrap">👕</div>
+              <h4 class="product-title">Peros Pro Esports Jersey</h4>
+              <p class="product-desc">Official high-grade dry-fit gaming jersey with custom player IGN on back.</p>
+              <div class="product-price-row">
+                <div class="product-price">₹599 <span>₹899</span></div>
+                <button class="btn btn-sm btn-primary" onclick="app.openShopCheckout('Peros Pro Esports Jersey', '₹599')">Order</button>
+              </div>
+            </div>
+
+            <!-- Product 4 -->
+            <div class="product-card">
+              <div class="product-badge">GEAR</div>
+              <div class="product-icon-wrap">🧤</div>
+              <h4 class="product-title">Pro Carbon Gaming Sleeves</h4>
+              <p class="product-desc">Ultra-sensitive sweat-proof finger sleeves for non-stop clutch gameplay.</p>
+              <div class="product-price-row">
+                <div class="product-price">₹149 <span>₹299</span></div>
+                <button class="btn btn-sm btn-primary" onclick="app.openShopCheckout('Pro Gaming Sleeves', '₹149')">Buy Now</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- =========================================================================
+           SECTION 7: ESPORTS BLOGS & COMMUNITY GAMEPLAY REELS
+           ========================================================================= -->
+      <section class="section blog-section" id="esports-blog">
+        <div class="container">
+          <div class="section-header-flex">
+            <div>
+              <span class="section-tag">Esports News & Community Clips</span>
+              <h2 class="section-title">GAMING BLOG <span>& GAMEPLAY REELS</span></h2>
+              <p class="section-desc">Master tournament tactics, watch community gameplay clips, read weapon tier lists, and share your own clutch moments!</p>
+            </div>
+            <button class="btn btn-primary btn-post-blog" onclick="app.openCreateBlogModal()" title="Upload gameplay screenshot or share YouTube video">
+              <i class="fa-solid fa-cloud-arrow-up"></i> Post a Blog / Gameplay Clip
+            </button>
+          </div>
+
+          <div class="blog-cards-grid" id="blog-cards-grid">
+            <!-- Dynamically rendered by app.renderBlogGrid() -->
+          </div>
+        </div>
+      </section>
+
+      <!-- =========================================================================
+           SECTION 8: ESPORTS RULES & FAIR PLAY VAULT
+           ========================================================================= -->
+      <section class="section rules-section" id="news-guides">
+        <div class="container">
+          <div class="section-header">
+            <span class="section-tag">Code of Conduct</span>
+            <h2 class="section-title">TOURNAMENT <span>RULES & FAIR PLAY</span></h2>
+            <p class="section-desc">Strict enforcement of fair play standards. Ensure all squad members review these rules.</p>
+          </div>
+
+          <div class="rules-grid" id="rules-grid-container">
+            <div class="rule-card">
+              <div class="rule-card-icon">🚫</div>
+              <h4 class="rule-card-title">Strict Anti-Cheat Policy</h4>
+              <p class="rule-card-desc">No hacks, aimbots, config files, or third-party scripts. Any squad detected cheating will be banned permanently with zero refund.</p>
+            </div>
+
+            <div class="rule-card">
+              <div class="rule-card-icon">👥</div>
+              <h4 class="rule-card-title">Registered Players Only</h4>
+              <p class="rule-card-desc">Only the registered In-Game Names (IGN) and Free Fire Character UIDs provided during registration will be permitted in the match room.</p>
+            </div>
+
+            <div class="rule-card">
+              <div class="rule-card-icon">🔐</div>
+              <h4 class="rule-card-title">Room ID & Password Protocol</h4>
+              <p class="rule-card-desc">Room ID and Password are sent strictly to confirmed Squad Leaders 15 minutes before the match. Do not share credentials externally.</p>
+            </div>
+
+            <div class="rule-card">
+              <div class="rule-card-icon">📸</div>
+              <h4 class="rule-card-title">Match Recording & Results</h4>
+              <p class="rule-card-desc">All squad leaders must screen record their POV or take clear end-game score screenshots for kill count and placement verification.</p>
+            </div>
+
+            <div class="rule-card">
+              <div class="rule-card-icon">🎯</div>
+              <h4 class="rule-card-title">High-Intensity Battle Royale</h4>
+              <p class="rule-card-desc">Single room showdown format with standard Free Fire placement and kill scoring points system.</p>
+            </div>
+
+            <div class="rule-card">
+              <div class="rule-card-icon">⚡</div>
+              <h4 class="rule-card-title">Instant UPI Payouts</h4>
+              <p class="rule-card-desc">Cash prizes are transferred directly via UPI within 30 minutes of official match validation.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- =========================================================================
+           SECTION 9: ABOUT PEROS ESPORTS PLATFORM
+           ========================================================================= -->
+      <section class="section about-section" id="about-us">
+        <div class="container">
+          <div class="section-header">
+            <span class="section-tag">Our Story & Mission</span>
+            <h2 class="section-title">ABOUT <span>PEROS ESPORTS</span></h2>
+            <p class="section-desc">Empowering grassroots Indian gamers to compete at professional standards with zero-delay UPI payouts, strict anti-cheat enforcement, and top-tier esports tournament production.</p>
+          </div>
+
+          <div class="about-grid">
+            <div class="about-card">
+              <div class="about-card-icon">⚡</div>
+              <h3 class="about-card-title">Instant UPI Settlement</h3>
+              <p class="about-card-desc">No waiting weeks for tournament earnings. Winners receive 100% verified cash prizes straight to PhonePe, Google Pay, or Paytm within 30 minutes of match completion.</p>
+            </div>
+
+            <div class="about-card">
+              <div class="about-card-icon">🛡️</div>
+              <h3 class="about-card-title">100% Anti-Cheat Integrity</h3>
+              <p class="about-card-desc">Zero tolerance for hackers, mod scripts, or unauthorized players. Every lobby is actively monitored with POV screen recording audits and human referees.</p>
+            </div>
+
+            <div class="about-card">
+              <div class="about-card-icon">👑</div>
+              <h3 class="about-card-title">Built for Indian Gamers</h3>
+              <p class="about-card-desc">Led by Organizer Charukesh, Peros Esports was engineered specifically for the Indian gaming ecosystem to deliver daily competitive scrims, dynamic brackets, and live casting.</p>
+            </div>
+
+            <div class="about-card">
+              <div class="about-card-icon">📲</div>
+              <h3 class="about-card-title">24/7 Live Support</h3>
+              <p class="about-card-desc">Have queries regarding slot allocation, custom rooms, or payments? Our dedicated WhatsApp helpline (+91 9347176849) is available round the clock to assist squad leaders.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- =========================================================================
+           SECTION 10: CONTACT US & PLAYER SUPPORT
+           ========================================================================= -->
+      <section class="section contact-section" id="contact-us">
+        <div class="container">
+          <div class="section-header">
+            <span class="section-tag">24/7 Organizer Desk</span>
+            <h2 class="section-title">CONTACT <span>PEROS ESPORTS</span></h2>
+            <p class="section-desc">Have questions about slot allocation, instant UPI payouts, custom match rooms, or sponsorship? Reach out directly to our organizer team!</p>
+          </div>
+
+          <div class="contact-grid">
+            <!-- Left Column: Helpline Info Card -->
+            <div class="contact-info-card">
+              <div class="contact-badge"><i class="fa-solid fa-headset"></i> DIRECT HELPLINE</div>
+              <h3 class="contact-info-title">Need Instant Match or Payment Support?</h3>
+              <p class="contact-info-text">Our dedicated organizers are available 24/7 to resolve slot issues, verify transaction proofs, and assist squad captains.</p>
+              
+              <div class="contact-details-list">
+                <div class="contact-detail-item">
+                  <div class="contact-icon"><i class="fa-brands fa-whatsapp"></i></div>
+                  <div>
+                    <div class="contact-label">WhatsApp Helpline</div>
+                    <a href="https://wa.me/919347176849" target="_blank" class="contact-val">+91 9347176849 (Charukesh)</a>
+                  </div>
+                </div>
+
+                <div class="contact-detail-item">
+                  <div class="contact-icon"><i class="fa-solid fa-envelope"></i></div>
+                  <div>
+                    <div class="contact-label">Official Email ID</div>
+                    <a href="mailto:support@perosesports.com" class="contact-val">support@perosesports.com</a>
+                  </div>
+                </div>
+
+                <div class="contact-detail-item">
+                  <div class="contact-icon"><i class="fa-solid fa-bolt"></i></div>
+                  <div>
+                    <div class="contact-label">Payout Guarantee</div>
+                    <div class="contact-val">Instant UPI settlement within 30 mins</div>
+                  </div>
+                </div>
+
+                <div class="contact-detail-item">
+                  <div class="contact-icon"><i class="fa-solid fa-users"></i></div>
+                  <div>
+                    <div class="contact-label">Community Group</div>
+                    <a href="https://chat.whatsapp.com/C5nbq7MBvuJFq7HSsElJTb?s=cl&p=a&mlu=4&ilr=4" target="_blank" class="contact-val">Join 15,000+ Gamers on WhatsApp ➔</a>
+                  </div>
+                </div>
+              </div>
+
+              <a href="https://chat.whatsapp.com/C5nbq7MBvuJFq7HSsElJTb?s=cl&p=a&mlu=4&ilr=4" target="_blank" class="btn btn-whatsapp btn-lg" style="width:100%; margin-top:20px;">
+                <i class="fa-brands fa-whatsapp"></i> Chat on Official WhatsApp
+              </a>
+            </div>
+
+            <!-- Right Column: Interactive Inquiry Form -->
+            <div class="contact-form-card">
+              <h3 class="contact-form-title"><span>📩</span> Send Us an Inquiry</h3>
+              <p class="contact-form-subtitle">Fill in your details below. We will respond within minutes on your WhatsApp / Email.</p>
+
+              <form id="contact-us-form" onsubmit="event.preventDefault(); app.handleContactFormSubmit();">
+                <div class="form-row">
+                  <div class="form-group">
+                    <label class="form-label">Full Name *</label>
+                    <input type="text" class="form-input" id="contact-name" placeholder="e.g. Rahul Sharma" required>
+                  </div>
+                  <div class="form-group">
+                    <label class="form-label">WhatsApp Phone Number *</label>
+                    <input type="tel" class="form-input" id="contact-phone" placeholder="e.g. 9347176849" required>
+                  </div>
+                </div>
+
+                <div class="form-row">
+                  <div class="form-group">
+                    <label class="form-label">Email ID *</label>
+                    <input type="email" class="form-input" id="contact-email" placeholder="e.g. rahul@gmail.com" required>
+                  </div>
+                  <div class="form-group">
+                    <label class="form-label">Topic / Subject *</label>
+                    <select class="form-select" id="contact-subject" required>
+                      <option value="Slot Booking & Room ID">Slot Booking & Room ID Inquiry</option>
+                      <option value="Payment & UPI Verification">Payment & UPI Verification</option>
+                      <option value="Prize Pool Payout Status">Prize Pool Payout Status</option>
+                      <option value="Host Custom Scrim / Tournament">Host Custom Scrim / Tournament</option>
+                      <option value="Report Cheater / Rule Violation">Report Cheater / Rule Violation</option>
+                      <option value="General Question / Feedback">General Question / Feedback</option>
+                    </select>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label class="form-label">What do you want to say? (Description / Message) *</label>
+                  <textarea class="form-textarea" id="contact-message" rows="4" placeholder="Describe your query, tournament issue, squad name, or any message you want to send to the organizer..." required></textarea>
+                </div>
+
+                <button type="submit" class="btn btn-primary btn-lg" id="btn-contact-submit" style="width:100%; margin-top:10px;">
+                  <i class="fa-solid fa-paper-plane"></i> Submit Inquiry & Send to WhatsApp
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- FOOTER (AGENT ESPORTS STYLE) -->
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-top-grid">
+          <div class="footer-col brand-col">
+            <div class="footer-brand">
+              <img src="assets/peros-logo.png" onerror="this.src='peros-logo.png'" alt="Peros Esports" class="footer-brand-logo">
+              <span>PEROS ESPORTS</span>
+            </div>
+            <div class="footer-slogan">👑 LEGACY STARTS HERE • SQUAD UP. CLUTCH HARD. TAKE THE CROWN.</div>
+            <p style="color:#8C9BAE; font-size:0.85rem; line-height:1.6;">
+              India's premier competitive gaming ecosystem hosting daily tournaments, esports tournaments, gaming gear, and community events.
+            </p>
+          </div>
+
+          <div class="footer-col">
+            <h4 class="footer-heading">QUICK LINKS</h4>
+            <ul class="footer-links-list">
+              <li><a href="#tournaments-lobby">Tournament Lobbies</a></li>
+              <li><a href="#match-arena">Active Slot Matrix</a></li>
+              <li><a href="#leaderboard">Championship Podium</a></li>
+              <li><a href="#watch-live">Watch Livestream</a></li>
+              <li><a href="#gaming-shop">Gaming Store & Topups</a></li>
+              <li><a href="#esports-blog">Gaming Blogs & Meta</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-col">
+            <h4 class="footer-heading">SUPPORT & SOCIALS</h4>
+            <ul class="footer-links-list">
+              <li><a href="https://chat.whatsapp.com/C5nbq7MBvuJFq7HSsElJTb?s=cl&p=a&mlu=4&ilr=4" target="_blank"><i class="fa-brands fa-whatsapp"></i> WhatsApp Group</a></li>
+              <li><a href="tel:9347176849"><i class="fa-solid fa-phone"></i> +91 9347176849</a></li>
+              <li><a href="mailto:support@perosesports.com"><i class="fa-solid fa-envelope"></i> Organizer Support</a></li>
+              <li><a href="#news-guides"><i class="fa-solid fa-shield-halved"></i> Anti-Cheat Rules</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="footer-bottom-row">
+          <div class="footer-copy">
+            &copy; 2026 Peros Esports Platform. All Rights Reserved. Built for Indian Gamers.
+          </div>
+          <div class="footer-tags">
+            <span>Free Fire MAX</span> • <span>BGMI</span> • <span>Clash Squad</span> • <span>Valorant</span>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <!-- =========================================================================
+       FLOATING PWA MOBILE INSTALL BANNER
+       ========================================================================= -->
+  <div class="pwa-install-banner" id="pwa-install-banner" style="display:none;">
+    <img src="assets/peros-logo.png" onerror="this.src='peros-logo.png'" alt="Peros Esports" class="pwa-banner-thumb">
+    <div class="pwa-banner-text">
+      Install <span>Peros Esports App</span> on your phone!
+    </div>
+    <button class="btn btn-sm btn-primary" id="btn-pwa-banner-install">Install</button>
+    <button class="btn-banner-close" id="btn-pwa-banner-close">&times;</button>
+  </div>
+
+  <!-- =========================================================================
+       MODAL 1: SQUAD REGISTRATION WIZARD (WITH TEAM LOGO UPLOAD)
+       ========================================================================= -->
+  <div class="modal-backdrop" id="modal-registration">
+    <div class="modal-dialog">
+      <button class="modal-close-btn">&times;</button>
+      
+      <div class="modal-header">
+        <h3 class="modal-title">🔥 SQUAD REGISTRATION</h3>
+        <p class="modal-subtitle">Complete registration to lock in your official match slot</p>
+      </div>
+
+      <!-- Registration Multi-Step Progress Tracker -->
+      <div class="wizard-steps-tracker">
+        <div class="step-item active" id="step-item-1">
+          <div class="step-circle">1</div>
+          <span class="step-label">Squad & Logo</span>
+        </div>
+        <div class="step-line"></div>
+        <div class="step-item" id="step-item-2">
+          <div class="step-circle">2</div>
+          <span class="step-label">Player Roster</span>
+        </div>
+        <div class="step-line"></div>
+        <div class="step-item" id="step-item-3">
+          <div class="step-circle">3</div>
+          <span class="step-label">Entry Fee QR</span>
+        </div>
+        <div class="step-line"></div>
+        <div class="step-item" id="step-item-4">
+          <div class="step-circle">4</div>
+          <span class="step-label">Verification</span>
+        </div>
+      </div>
+
+      <form id="reg-form">
+        <!-- STEP 1: SQUAD IDENTITY & LOGO UPLOAD -->
+        <div class="wizard-step-content" id="reg-step-content-1">
+          <div class="form-group">
+            <label class="form-label">Squad / Team Name *</label>
+            <input type="text" class="form-input" id="reg-squad-name" placeholder="e.g. ALPHA ESPORTS" required>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label">Squad Tag / Clantag</label>
+              <input type="text" class="form-input" id="reg-squad-tag" placeholder="e.g. ALP" maxlength="5">
+            </div>
+            <div class="form-group">
+              <label class="form-label">Select Preferred Slot *</label>
+              <select class="form-input" id="reg-slot-select" required>
+                <!-- Populated dynamically -->
+              </select>
+            </div>
+          </div>
+
+          <!-- Team Logo Upload Component -->
+          <div class="form-group">
+            <label class="form-label">Team Logo (Optional)</label>
+            <div class="team-logo-upload-wrap" onclick="document.getElementById('reg-logo-input').click()">
+              <div class="team-logo-preview" id="reg-logo-preview">
+                🛡️
+              </div>
+              <div class="team-logo-upload-text">
+                <div style="color:#FFF; font-weight:700; font-size:0.9rem;">Upload Team Logo</div>
+                <small style="color:#8C9BAE;">Click to select emblem (PNG/JPG). Will appear on the slot tracker & leaderboard!</small>
+              </div>
+              <input type="file" id="reg-logo-input" accept="image/*" style="display:none;">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Leader WhatsApp Number *</label>
+            <input type="tel" class="form-input" id="reg-leader-phone" placeholder="e.g. 9347176849" required>
+            <small style="color:#8C9BAE; font-size:0.75rem;">Room ID & Password will be delivered to this WhatsApp number.</small>
+          </div>
+        </div>
+
+        <!-- STEP 2: SQUAD ROSTER PLAYERS (DYNAMICALLY GENERATED) -->
+        <div class="wizard-step-content" id="reg-step-content-2" style="display:none;">
+          <div id="reg-players-container">
+            <!-- Dynamically populated based on tournament.playersPerSquad -->
+          </div>
+        </div>
+
+        <!-- STEP 3: PAYMENT & DYNAMIC UPI QR -->
+        <div class="wizard-step-content" id="reg-step-content-3" style="display:none;">
+          <div class="payment-qr-container">
+            <div style="font-family:var(--font-heading); color:var(--fire-amber); font-size:1.1rem; font-weight:700; margin-bottom:8px;">
+              PAY SQUAD ENTRY FEE
+            </div>
+            <p style="color:#A0AEC0; font-size:0.85rem; margin-bottom:14px;">Scan with Google Pay, PhonePe, Paytm, BHIM, or any UPI App:</p>
+
+            <div class="qr-code-box" id="upi-qr-display">
+              <!-- Rendered dynamically -->
+            </div>
+
+            <div class="upi-id-badge">
+              <span id="display-upi-id">9347176849@ybl</span>
+              <button type="button" class="btn-copy-upi" onclick="app.copyUPIId()">
+                <span id="btn-copy-upi-text">COPY</span>
+              </button>
+            </div>
+
+            <div class="upi-apps-row">
+              <a href="#" id="link-gpay" class="upi-app-btn">GPay ⚡</a>
+              <a href="#" id="link-phonepe" class="upi-app-btn">PhonePe ⚡</a>
+              <a href="#" id="link-paytm" class="upi-app-btn">Paytm ⚡</a>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">UPI Reference / Transaction ID (Optional)</label>
+            <input type="text" class="form-input" id="reg-payment-ref" placeholder="e.g. 402918274619">
+          </div>
+        </div>
+
+        <!-- STEP 4: SCREENSHOT UPLOAD & DIRECT WHATSAPP -->
+        <div class="wizard-step-content" id="reg-step-content-4" style="display:none;">
+          <div class="screenshot-upload-dropzone" onclick="document.getElementById('reg-screenshot-input').click()">
+            <div class="upload-icon">📸</div>
+            <div style="font-family:var(--font-heading); font-weight:700; color:#FFF;">Upload Payment Screenshot</div>
+            <p style="color:#8C9BAE; font-size:0.82rem; margin-top:4px;">Click to select receipt screenshot from device</p>
+            <input type="file" id="reg-screenshot-input" accept="image/*" style="display:none;">
+
+            <div class="screenshot-preview-container" id="screenshot-preview-container">
+              <img src="" id="screenshot-preview-img" class="screenshot-preview-img" alt="Payment Preview">
+              <div style="color:var(--success-green); font-size:0.8rem; margin-top:4px; font-weight:700;">Screenshot Attached ✅</div>
+            </div>
+          </div>
+
+          <div style="background:rgba(0,0,0,0.5); border:1px solid var(--border-glass); border-radius:var(--radius-sm); padding:14px; font-size:0.85rem; color:#CBD5E0; line-height:1.5;">
+            <strong style="color:var(--fire-amber);">📲 Instant WhatsApp Verification:</strong><br>
+            When you click "Confirm & Send to WhatsApp", your squad roster and payment details will be auto-formatted and sent directly to Organizer WhatsApp (+91 9347176849).
+          </div>
+        </div>
+
+        <!-- Wizard Action Buttons -->
+        <div style="display:flex; justify-content:space-between; margin-top:24px; gap:12px;">
+          <button type="button" class="btn btn-secondary" id="btn-reg-prev">Back</button>
+          <button type="button" class="btn btn-primary" id="btn-reg-next">Next ➔</button>
+          <button type="button" class="btn btn-whatsapp" id="btn-reg-submit" style="display:none;">
+            <span>📲</span> Confirm & Send to WhatsApp
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- =========================================================================
+       MODAL 2: UNIFIED AUTH MODAL (PLAYER SIGN IN & SECRET ADMIN LOGIN)
+       ========================================================================= -->
+  <div class="modal-backdrop" id="modal-auth">
+    <div class="modal-dialog">
+      <button class="modal-close-btn">&times;</button>
+      
+      <div class="modal-logo-wrap">
+        <img src="assets/peros-logo.png" onerror="this.src='peros-logo.png'" alt="Peros Esports" class="modal-brand-logo">
+      </div>
+
+      <div class="modal-header">
+        <h3 class="modal-title" id="auth-modal-title">PEROS ESPORTS ARENA</h3>
+        <p class="modal-subtitle" id="auth-modal-subtitle">Sign in to track your tournaments and match room IDs</p>
+      </div>
+
+      <!-- Google Sign In Button -->
+      <button class="btn-google-auth" onclick="app.handleGoogleAuth()">
+        <svg class="google-icon" viewBox="0 0 24 24">
+          <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
+          <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
+          <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z"/>
+          <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z"/>
+        </svg>
+        <span>Continue with Google</span>
+      </button>
+
+      <div class="auth-divider">
+        <span>or with player credentials</span>
+      </div>
+
+      <!-- Auth Mode Tabs -->
+      <div class="auth-nav-tabs">
+        <div class="auth-nav-tab active" id="auth-tab-login" onclick="app.switchAuthTab('login')">Sign In</div>
+        <div class="auth-nav-tab" id="auth-tab-signup" onclick="app.switchAuthTab('signup')">Create Account</div>
+      </div>
+
+      <!-- UNIFIED LOGIN FORM -->
+      <form id="auth-form-login" onsubmit="event.preventDefault(); app.handleUserLogin();">
+        <div class="form-group">
+          <label class="form-label">Email or Username *</label>
+          <input type="text" class="form-input" id="login-email" placeholder="e.g. player@gmail.com" required>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Password *</label>
+          <input type="password" class="form-input" id="login-pass" placeholder="••••••••" required>
+        </div>
+        <button type="submit" class="btn btn-primary" style="width:100%; margin-top:8px;">
+          <span>⚡</span> Sign In
+        </button>
+      </form>
+
+      <!-- SIGN UP FORM -->
+      <form id="auth-form-signup" style="display:none;" onsubmit="event.preventDefault(); app.handleUserSignUp();">
+        <div class="form-group">
+          <label class="form-label">Player Name *</label>
+          <input type="text" class="form-input" id="signup-name" placeholder="e.g. Charukesh" required>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Email ID *</label>
+          <input type="email" class="form-input" id="signup-email" placeholder="e.g. player@gmail.com" required>
+        </div>
+        <div class="form-group">
+          <label class="form-label">WhatsApp Phone Number *</label>
+          <input type="tel" class="form-input" id="signup-phone" placeholder="e.g. 9347176849" required>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Create Password *</label>
+          <input type="password" class="form-input" id="signup-pass" placeholder="••••••••" required>
+        </div>
+        <button type="submit" class="btn btn-primary" style="width:100%; margin-top:8px;">
+          <span>🎉</span> Create Account
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- =========================================================================
+       MODAL 3: MY REGISTERED SQUADS & ACCOUNT MODAL
+       ========================================================================= -->
+  <div class="modal-backdrop" id="modal-my-squads">
+    <div class="modal-dialog">
+      <button class="modal-close-btn">&times;</button>
+      
+      <div class="modal-header">
+        <h3 class="modal-title">🛡️ MY REGISTERED SQUADS</h3>
+        <p class="modal-subtitle">Track your tournament entries and match room credentials</p>
+      </div>
+
+      <div id="my-squads-body" style="margin-bottom:20px;">
+        <!-- Rendered by app.js -->
+      </div>
+
+      <div style="display:flex; justify-content:space-between; border-top:1px solid var(--border-glass); padding-top:16px;">
+        <button class="btn btn-secondary btn-sm" onclick="app.handleUserLogout()">
+          <span>🚪</span> Log Out
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- =========================================================================
+       MODAL 4: SUCCESS & WHATSAPP REDIRECT CONFIRMATION
+       ========================================================================= -->
+  <div class="modal-backdrop" id="modal-success">
+    <div class="modal-dialog" style="text-align:center;">
+      <button class="modal-close-btn">&times;</button>
+      <div style="font-size:3.5rem; margin-bottom:10px;">🎉🔥✅</div>
+      <h3 class="modal-title" style="color:var(--success-green); margin-bottom:8px;">REGISTRATION SUBMITTED!</h3>
+      <div id="success-modal-details" style="margin-bottom:24px;"></div>
+      <div style="display:flex; flex-direction:column; gap:12px;">
+        <button id="btn-success-send-wa" class="btn btn-whatsapp btn-lg">
+          <i class="fa-brands fa-whatsapp"></i> Open WhatsApp & Send Details
+        </button>
+        <a href="https://chat.whatsapp.com/C5nbq7MBvuJFq7HSsElJTb?s=cl&p=a&mlu=4&ilr=4" target="_blank" rel="noopener" class="btn btn-secondary">
+          <i class="fa-solid fa-users"></i> Join Official WhatsApp Group
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- =========================================================================
+       MODAL 5: SLOT DETAILS INSPECTOR
+       ========================================================================= -->
+  <div class="modal-backdrop" id="modal-slot-details">
+    <div class="modal-dialog">
+      <button class="modal-close-btn">&times;</button>
+      <div id="slot-details-body">
+        <!-- Rendered by app.js -->
+      </div>
+    </div>
+  </div>
+
+  <!-- =========================================================================
+       MODAL 6: ORGANIZER ADMIN COMMAND CENTER (UNLOCKED SECRETLY VIA LOGIN)
+       ========================================================================= -->
+  <div class="modal-backdrop" id="modal-admin">
+    <div class="modal-dialog modal-lg">
+      <button class="modal-close-btn">&times;</button>
+      <div class="modal-header">
+        <h3 class="modal-title">🛡️ ORGANIZER COMMAND CENTER</h3>
+        <p class="modal-subtitle">Organizer: <strong>charukesh</strong> • Master Operations Panel</p>
+      </div>
+
+      <!-- Admin Tab Bar -->
+      <div class="admin-tab-bar">
+        <button class="admin-tab-btn active" id="admin-tab-btn-squads" onclick="app.switchAdminTab('squads')">👥 Squads & Logos</button>
+        <button class="admin-tab-btn" id="admin-tab-btn-room" onclick="app.switchAdminTab('room')">🔐 Room Dispatch</button>
+        <button class="admin-tab-btn" id="admin-tab-btn-points" onclick="app.switchAdminTab('points')">🏆 Points & Winners</button>
+        <button class="admin-tab-btn" id="admin-tab-btn-tournaments" onclick="app.switchAdminTab('tournaments')">🚀 Events & New Tournaments</button>
+      </div>
+
+      <!-- TAB 1: SQUAD ROSTER MANAGEMENT -->
+      <div id="admin-tab-content-squads">
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:14px; flex-wrap:wrap; gap:10px; background:rgba(0,0,0,0.3); padding:12px 16px; border-radius:var(--radius-sm); border:1px solid var(--border-glass);">
+          <div>
+            <strong style="color:var(--cyber-cyan); font-family:var(--font-heading);" id="admin-active-event-name">🎯 Active Event: Loading...</strong>
+            <div style="color:#8C9BAE; font-size:0.8rem; margin-top:2px;">Approve squads, assign leaders, or start with clean empty slots</div>
+          </div>
+          <button class="btn btn-sm btn-secondary" style="color:#FF3366;" onclick="app.clearAllSquads()">
+            <span>🗑️</span> Reset All Slots to Empty
+          </button>
+        </div>
+
+        <div class="admin-table-container">
+          <table class="admin-table">
+            <thead>
+              <tr>
+                <th>Slot</th>
+                <th>Squad & Logo</th>
+                <th>Leader Contact</th>
+                <th>Payment Proof & Txn ID</th>
+                <th>Status</th>
+                <th>Cross-Check & Actions</th>
+              </tr>
+            </thead>
+            <tbody id="admin-squads-tbody">
+              <!-- Rendered by app.js -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- TAB 2: ROOM CREDENTIALS DISPATCHER -->
+      <div id="admin-tab-content-room" style="display:none;">
+        <div class="room-dispatch-card">
+          <h4 style="font-family:var(--font-heading); color:var(--cyber-cyan); font-size:1.1rem; margin-bottom:14px; text-transform:uppercase;">
+            🔐 Match Custom Room Details
+          </h4>
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label">Custom Room ID</label>
+              <input type="text" class="form-input" id="admin-input-room-id" placeholder="e.g. 8849201">
+            </div>
+            <div class="form-group">
+              <label class="form-label">Room Password</label>
+              <input type="text" class="form-input" id="admin-input-room-pass" placeholder="e.g. PEROS26">
+            </div>
+          </div>
+          <div style="display:flex; gap:10px; margin-top:10px; flex-wrap:wrap;">
+            <button class="btn btn-primary" onclick="app.saveRoomCredentials()">Save Credentials</button>
+            <button class="btn btn-whatsapp" onclick="app.broadcastRoomCredentials()">
+              <i class="fa-solid fa-copy"></i> Copy WhatsApp Broadcast Text
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- TAB 3: LIVE POINTS TABLE & LEADERBOARD CALCULATOR -->
+      <div id="admin-tab-content-points" style="display:none;">
+        <p style="color:#A0AEC0; font-size:0.9rem; margin-bottom:14px;">
+          Input Placement Rank and Kills for each squad. The system computes Placement Points + Kill Points and declares the 1st, 2nd, and 3rd place winners with team emblems!
+        </p>
+        <div id="admin-points-container">
+          <!-- Rendered by app.js -->
+        </div>
+        <div style="margin-top:20px; text-align:right;">
+          <button class="btn btn-primary btn-lg" onclick="app.calculateAndDeclareWinners()">
+            <span>🏆</span> Calculate Leaderboard & Declare Winners
+          </button>
+        </div>
+      </div>
+
+      <!-- TAB 4: MULTI-EVENT & TOURNAMENT CREATOR (A-TO-Z SPECIFICATIONS) -->
+      <div id="admin-tab-content-tournaments" style="display:none;">
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:18px; flex-wrap:wrap; gap:10px;">
+          <div>
+            <h4 style="font-family:var(--font-heading); color:#FFF; font-size:1.2rem; text-transform:uppercase; margin-bottom:4px;">
+              🏆 Tournaments & Event Manager
+            </h4>
+            <p style="color:#8C9BAE; font-size:0.85rem;">Create, configure, and switch between live tournaments</p>
+          </div>
+          <button class="btn btn-primary" id="btn-show-tour-creator" onclick="app.openTournamentCreatorForm()">
+            <span>➕</span> Create New Tournament (A-Z Specs)
+          </button>
+        </div>
+
+        <!-- INLINE A-TO-Z TOURNAMENT CREATOR & EDITOR -->
+        <div id="admin-tournament-form-container" class="tournament-creator-card" style="display:none;">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:16px;">
+            <h3 class="modal-title" id="tour-form-title" style="font-size:1.3rem;">🚀 CREATE NEW TOURNAMENT</h3>
+            <button class="btn btn-sm btn-secondary" onclick="app.closeTournamentCreatorForm()">&times; Close</button>
+          </div>
+
+          <form id="form-admin-tournament-editor" onsubmit="event.preventDefault(); app.handleSaveTournamentSpecs();">
+            <input type="hidden" id="edit-tour-id" value="">
+
+            <!-- SECTION 1: IDENTITY & BANNER -->
+            <div class="form-section-header">
+              <span>🎯 1. Tournament Identity & Poster</span>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">Tournament Name *</label>
+              <input type="text" class="form-input" id="tour-name" placeholder="e.g. PEROS ESPORTS CLASH SQUAD WAR 2026" required>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">Subtitle / Slogan</label>
+              <input type="text" class="form-input" id="tour-subtitle" placeholder="e.g. Where Every Clutch Counts! ⚡" value="Where Every Clutch Counts! ⚡">
+            </div>
+
+            <!-- Banner Upload & Preset Selection -->
+            <div class="form-group">
+              <label class="form-label">Tournament Banner / Poster</label>
+              <div class="banner-upload-box" onclick="document.getElementById('tour-banner-file-input').click()">
+                <img src="assets/peros-logo.jpg" id="tour-banner-preview-img" class="banner-preview-img" alt="Banner Preview">
+                <div>
+                  <div style="font-family:var(--font-heading); font-weight:700; color:#FFF; font-size:0.9rem;">Upload Custom Tournament Poster</div>
+                  <div style="color:#8C9BAE; font-size:0.78rem; margin-top:3px;">Click to select banner image (PNG/JPG) or use presets below</div>
+                </div>
+                <input type="file" id="tour-banner-file-input" accept="image/*" style="display:none;">
+              </div>
+
+              <div class="preset-banners-row">
+                <span style="font-size:0.78rem; color:#A0AEC0; align-self:center;">Presets:</span>
+                <button type="button" class="banner-preset-btn" onclick="app.setTournamentBannerPreset('assets/peros-logo.jpg')">Official Peros Emblem</button>
+                <button type="button" class="banner-preset-btn" onclick="app.setTournamentBannerPreset('https://images.unsplash.com/photo-1542751371-adc38448a05e?w=800&q=80')">Cyber Arena</button>
+                <button type="button" class="banner-preset-btn" onclick="app.setTournamentBannerPreset('https://images.unsplash.com/photo-1511512578047-dfb367046420?w=800&q=80')">Neon Esports</button>
+              </div>
+            </div>
+
+            <!-- SECTION 2: GAME MODE & MAP -->
+            <div class="form-section-header">
+              <span>🎮 2. Game Mode & Map Configuration</span>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label class="form-label">Game Title</label>
+                <select class="form-input" id="tour-game">
+                  <option value="Garena Free Fire" selected>Garena Free Fire (Battle Royale)</option>
+                  <option value="Free Fire (Clash Squad)">Free Fire (Clash Squad)</option>
+                  <option value="Battlegrounds Mobile India (BGMI)">Battlegrounds Mobile India (BGMI)</option>
+                  <option value="Valorant">Valorant</option>
+                  <option value="Custom Game">Custom Mobile Game</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label">Match Mode</label>
+                <select class="form-input" id="tour-mode" onchange="app.handleTourModeChange()">
+                  <option value="Battle Royale" selected>Battle Royale (Full Map)</option>
+                  <option value="Clash Squad">Clash Squad (4v4 Knockout)</option>
+                  <option value="Duo Showdown">Duo Showdown (2v2)</option>
+                  <option value="Solo Survival">Solo Survival (1v1)</option>
+                  <option value="Custom Mode">Custom Mode</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label class="form-label">Map Selection</label>
+                <select class="form-input" id="tour-map">
+                  <option value="Bermuda (Full Map)" selected>Bermuda (Full Map)</option>
+                  <option value="Purgatory">Purgatory</option>
+                  <option value="Kalahari">Kalahari</option>
+                  <option value="Alpine">Alpine</option>
+                  <option value="NeXTerra">NeXTerra</option>
+                  <option value="Clash Squad Bermuda">Clash Squad Bermuda (CS)</option>
+                  <option value="All Maps Rotation">All Maps Rotation</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label">Format Style</label>
+                <input type="text" class="form-input" id="tour-format" placeholder="e.g. Squad (4v4v4v4)" value="Squad (4v4v4v4)">
+              </div>
+            </div>
+
+            <!-- SECTION 3: ROSTER & SLOTS ARCHITECTURE -->
+            <div class="form-section-header">
+              <span>👥 3. Roster & Slot Architecture</span>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label class="form-label">Total Slots / Teams *</label>
+                <input type="number" class="form-input" id="tour-slots-count" min="2" max="48" value="12" oninput="app.updateTourRosterSummary()" required>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label">Players per Squad / Team *</label>
+                <select class="form-input" id="tour-players-per-team" onchange="app.updateTourRosterSummary()">
+                  <option value="4" selected>4 Players (Squad / Clash Squad)</option>
+                  <option value="2">2 Players (Duo)</option>
+                  <option value="1">1 Player (Solo)</option>
+                </select>
+              </div>
+            </div>
+
+            <div style="margin-bottom:16px;">
+              <span class="badge badge-available" id="tour-roster-summary-badge" style="font-size:0.85rem; padding:6px 14px;">
+                👥 Configuration: 12 Squads × 4 Players = 48 Total Registered Players
+              </span>
+            </div>
+
+            <!-- SECTION 4: FINANCIALS & PRIZE POOL -->
+            <div class="form-section-header">
+              <span>💰 4. Entry Fee & Prize Pool Distribution</span>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label class="form-label">Entry Fee / Squad (₹) *</label>
+                <input type="number" class="form-input" id="tour-entry-fee" value="120" min="0" required>
+              </div>
+              <div class="form-group">
+                <label class="form-label">Total Prize Pool (₹) *</label>
+                <input type="number" class="form-input" id="tour-total-prize" value="1440" required>
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label class="form-label">1st Place Prize 🥇 (₹)</label>
+                <input type="number" class="form-input" id="tour-prize-1" value="700" oninput="app.autoComputeTotalPrize()">
+              </div>
+              <div class="form-group">
+                <label class="form-label">2nd Place Prize 🥈 (₹)</label>
+                <input type="number" class="form-input" id="tour-prize-2" value="450" oninput="app.autoComputeTotalPrize()">
+              </div>
+              <div class="form-group">
+                <label class="form-label">3rd Place Prize 🥉 (₹)</label>
+                <input type="number" class="form-input" id="tour-prize-3" value="290" oninput="app.autoComputeTotalPrize()">
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">UPI ID for Entry Payments</label>
+              <input type="text" class="form-input" id="tour-upi-id" value="9347176849@ybl" placeholder="e.g. 9347176849@ybl">
+            </div>
+
+            <!-- SECTION 5: MATCH SCHEDULE & COMMUNICATION -->
+            <div class="form-section-header">
+              <span>📲 5. Match Schedule & WhatsApp Hub</span>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label class="form-label">Match Date & Time</label>
+                <input type="datetime-local" class="form-input" id="tour-datetime">
+              </div>
+              <div class="form-group">
+                <label class="form-label">Organizer Contact WhatsApp</label>
+                <input type="tel" class="form-input" id="tour-phone" value="919347176849" placeholder="e.g. 919347176849">
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">Official WhatsApp Group Link for this Tournament *</label>
+              <input type="url" class="form-input" id="tour-wa-group-link" value="https://chat.whatsapp.com/C5nbq7MBvuJFq7HSsElJTb?s=cl&p=a&mlu=4&ilr=4" placeholder="https://chat.whatsapp.com/..." required>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label class="form-label">Default Custom Room ID (Optional)</label>
+                <input type="text" class="form-input" id="tour-room-id" placeholder="e.g. 8849201">
+              </div>
+              <div class="form-group">
+                <label class="form-label">Default Room Password (Optional)</label>
+                <input type="text" class="form-input" id="tour-room-pass" placeholder="e.g. PEROS26">
+              </div>
+            </div>
+
+            <!-- SECTION 6: TOURNAMENT RULES -->
+            <div class="form-section-header">
+              <span>⚠️ 6. Rules & Fair Play Guidelines</span>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">Custom Rules & Special Instructions</label>
+              <textarea class="form-input" id="tour-rules" rows="3" placeholder="Enter special rules (Gun attributes, character skills, emulator rules, recording requirements)...">1. Strict Anti-Cheat: No scripts, hacks, or mod files (Permanent Ban + No Refund).
+2. Registered Players Only: Only registered IGNs and UIDs allowed.
+3. Proof Requirement: Squad leaders must screen record POV or take end-game score screenshot.
+4. Instant UPI Payouts: Prizes transferred within 30 minutes of match validation.</textarea>
+            </div>
+
+            <!-- Submit & Action Buttons -->
+            <div style="display:flex; gap:12px; margin-top:24px; flex-wrap:wrap;">
+              <button type="submit" class="btn btn-primary btn-lg" style="flex:1;">
+                <span>🔥</span> Save & Launch Tournament
+              </button>
+              <button type="button" class="btn btn-secondary" onclick="app.closeTournamentCreatorForm()">
+                Cancel
+              </button>
+            </div>
+          </form>
+        </div>
+
+        <!-- LIST OF EXISTING TOURNAMENTS -->
+        <div id="admin-tournaments-list">
+          <!-- Rendered dynamically by app.js -->
+        </div>
+
+        <div style="display:flex; gap:12px; margin-top:24px; border-top:1px solid var(--border-glass); padding-top:16px; flex-wrap:wrap;">
+          <button class="btn btn-secondary" onclick="app.exportDatabaseJSON()">📥 Export Platform Backup (JSON)</button>
+          <button class="btn btn-secondary" style="color:#FF3366;" onclick="app.handleUserLogout()">🚪 Logout Organizer</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- =========================================================================
+       MODAL 7: VICTORY CELEBRATION & LEADERBOARD PODIUM
+       ========================================================================= -->
+  <div class="modal-backdrop" id="modal-victory-leaderboard">
+    <div class="modal-dialog modal-lg">
+      <button class="modal-close-btn">&times;</button>
+      <div id="victory-leaderboard-content">
+        <!-- Rendered by app.js -->
+      </div>
+    </div>
+  </div>
+
+  <!-- =========================================================================
+       MODAL 8: PWA MOBILE / DESKTOP INSTALL GUIDE
+       ========================================================================= -->
+  <div class="modal-backdrop" id="modal-pwa-guide">
+    <div class="modal-dialog" style="max-width:500px; text-align:center;">
+      <button class="modal-close-btn">&times;</button>
+      <div class="modal-logo-wrap">
+        <img src="assets/peros-logo.png" onerror="this.src='peros-logo.png'" alt="Peros Esports" class="modal-brand-logo">
+      </div>
+      <h3 class="modal-title" style="color:var(--cyber-cyan); margin-bottom:6px; font-size:1.4rem;">📲 INSTALL PEROS ESPORTS APP</h3>
+      <p class="modal-subtitle" style="margin-bottom:20px;">Play tournaments in fast, full-screen standalone mode with offline support</p>
+
+      <div style="text-align:left; display:flex; flex-direction:column; gap:14px; background:rgba(0,0,0,0.5); border:1px solid var(--border-glass); border-radius:var(--radius-md); padding:18px;">
+        <div style="display:flex; gap:12px; align-items:flex-start;">
+          <span style="font-size:1.6rem;">🤖</span>
+          <div>
+            <strong style="color:#FFF; font-size:0.95rem;">Android / Chrome:</strong>
+            <p style="color:#A0AEC0; font-size:0.85rem; margin-top:2px;">Tap browser menu <strong>(⋮ 3 dots)</strong> at top right ➔ Tap <strong>"Install app"</strong> or <strong>"Add to Home screen"</strong>.</p>
+          </div>
+        </div>
+
+        <div style="display:flex; gap:12px; align-items:flex-start; border-top:1px solid rgba(255,255,255,0.06); padding-top:12px;">
+          <span style="font-size:1.6rem;">🍎</span>
+          <div>
+            <strong style="color:#FFF; font-size:0.95rem;">iPhone / iOS Safari:</strong>
+            <p style="color:#A0AEC0; font-size:0.85rem; margin-top:2px;">Tap the <strong>Share button (⎋)</strong> at bottom bar ➔ Scroll down and tap <strong>"Add to Home Screen" (➕)</strong>.</p>
+          </div>
+        </div>
+
+        <div style="display:flex; gap:12px; align-items:flex-start; border-top:1px solid rgba(255,255,255,0.06); padding-top:12px;">
+          <span style="font-size:1.6rem;">💻</span>
+          <div>
+            <strong style="color:#FFF; font-size:0.95rem;">PC / Desktop (Chrome / Edge):</strong>
+            <p style="color:#A0AEC0; font-size:0.85rem; margin-top:2px;">Click the <strong>Install icon (⊕)</strong> on the right side of the browser URL bar.</p>
+          </div>
+        </div>
+      </div>
+
+      <button class="btn btn-primary btn-lg" style="width:100%; margin-top:20px;" onclick="document.getElementById('modal-pwa-guide')?.classList.remove('active');">
+        <span>✅</span> Got It!
+      </button>
+    </div>
+  </div>
+
+  <!-- =========================================================================
+       MODAL 9: GAMING SHOP CHECKOUT MODAL
+       ========================================================================= -->
+  <div class="modal-backdrop" id="modal-shop-checkout">
+    <div class="modal-dialog" style="text-align:center;">
+      <button class="modal-close-btn">&times;</button>
+      <div style="font-size:3rem; margin-bottom:10px;">🛍️💎</div>
+      <h3 class="modal-title" style="color:var(--cyber-cyan);" id="shop-modal-item-name">GAMING TOP-UP</h3>
+      <p class="modal-subtitle" id="shop-modal-item-price">Price: ₹400</p>
+      
+      <div style="background:rgba(0,0,0,0.5); border:1px solid var(--border-glass); border-radius:var(--radius-sm); padding:16px; text-align:left; margin:16px 0; font-size:0.88rem; color:#CBD5E0;">
+        <div style="margin-bottom:8px;"><strong>⚡ Fast WhatsApp Delivery:</strong></div>
+        <div>1. Enter your Free Fire UID or Shipping Address in WhatsApp.</div>
+        <div>2. Complete UPI payment to <strong>9347176849@ybl</strong>.</div>
+        <div>3. Diamonds / Products dispatched in 5-15 mins with live receipt.</div>
+      </div>
+
+      <button id="btn-shop-wa-confirm" class="btn btn-whatsapp btn-lg" style="width:100%;">
+        <i class="fa-brands fa-whatsapp"></i> Order on WhatsApp
+      </button>
+    </div>
+  </div>
+
+  <!-- =========================================================================
+       MODAL 10: BLOG ARTICLE READER MODAL
+       ========================================================================= -->
+  <div class="modal-backdrop" id="modal-blog-reader">
+    <div class="modal-dialog modal-lg">
+      <button class="modal-close-btn">&times;</button>
+      <div id="blog-reader-body">
+        <!-- Dynamically populated by app.js -->
+      </div>
+    </div>
+  </div>
+
+  <!-- =========================================================================
+       MODAL 11: ADMIN PAYMENT PROOF & SQUAD VERIFICATION MODAL
+       ========================================================================= -->
+  <div class="modal-backdrop" id="modal-admin-payment-proof">
+    <div class="modal-dialog modal-lg">
+      <button class="modal-close-btn">&times;</button>
+      <div id="admin-payment-proof-body">
+        <!-- Dynamically rendered by app.js -->
+      </div>
+    </div>
+  </div>
+
+  <!-- =========================================================================
+       MODAL 12: POST A BLOG / GAMEPLAY CLIP MODAL
+       ========================================================================= -->
+  <div class="modal-backdrop" id="modal-create-blog">
+    <div class="modal-dialog modal-lg">
+      <button class="modal-close-btn">&times;</button>
+      
+      <div class="modal-header">
+        <h3 class="modal-title">🎮 POST GAMEPLAY CLIP OR ESPORTS BLOG</h3>
+        <p class="modal-subtitle">Share your clutch moments, tournament strategies, or YouTube highlights with the Peros Esports community</p>
+      </div>
+
+      <form id="create-blog-form" onsubmit="event.preventDefault(); app.handleCreateBlogSubmit();">
+        <div class="form-row">
+          <div class="form-group" style="flex:2;">
+            <label class="form-label">Post Title / Reel Headline *</label>
+            <input type="text" class="form-input" id="create-blog-title" placeholder="e.g. Insane 1v4 Clutch in Bermuda Final Circle!" required>
+          </div>
+          <div class="form-group" style="flex:1;">
+            <label class="form-label">Your Gamer IGN / Author *</label>
+            <input type="text" class="form-input" id="create-blog-author" placeholder="e.g. ALP_Player1" required>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label">Category / Tag *</label>
+            <select class="form-select" id="create-blog-category" required>
+              <option value="GAMEPLAY CLIP">🎥 Gameplay Video Clip / Reel</option>
+              <option value="PRO GUIDE">💡 Pro Strategy & Tactics Guide</option>
+              <option value="TOURNAMENT CLUTCH">⚡ Tournament Clutch Moment</option>
+              <option value="WEAPON META">🎯 Weapon Meta & Tier List</option>
+              <option value="COMMUNITY HIGHLIGHT">🏆 Community Squad Highlight</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Media Type *</label>
+            <div class="media-type-toggle-group">
+              <label class="media-radio-pill active" id="label-media-photo">
+                <input type="radio" name="create-blog-media-type" value="photo" checked onchange="app.toggleBlogMediaType('photo')">
+                <span>📸 Upload Photo</span>
+              </label>
+              <label class="media-radio-pill" id="label-media-video">
+                <input type="radio" name="create-blog-media-type" value="video" onchange="app.toggleBlogMediaType('video')">
+                <span>🎬 YouTube Video</span>
+              </label>
+            </div>
+          </div>
+        </div>
+
+        <!-- Photo Upload Field -->
+        <div class="form-group" id="blog-media-photo-group">
+          <label class="form-label">Upload Cover Photo / Gameplay Screenshot</label>
+          <div class="file-upload-box" onclick="document.getElementById('create-blog-file-input').click()">
+            <input type="file" id="create-blog-file-input" accept="image/*" style="display:none;" onchange="app.handleBlogThumbnailUpload(event)">
+            <div id="create-blog-preview-wrap" style="display:flex; flex-direction:column; align-items:center; gap:8px;">
+              <span style="font-size:2rem;">📸</span>
+              <span style="color:#CBD5E0; font-size:0.9rem;">Click or tap to upload high-res screenshot or thumbnail</span>
+              <span style="color:#64748B; font-size:0.78rem;">PNG, JPG, WebP supported</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Video URL Field -->
+        <div class="form-group" id="blog-media-video-group" style="display:none;">
+          <label class="form-label">YouTube Video / Gameplay Clip Link</label>
+          <input type="url" class="form-input" id="create-blog-video-url" placeholder="e.g. https://www.youtube.com/watch?v=... or https://youtu.be/...">
+          <small style="color:#8C9BAE; font-size:0.8rem; margin-top:4px; display:block;">Paste any YouTube video or shorts link. We will embed the live player for the community!</small>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Blog Story / Gameplay Description ("What you want to say") *</label>
+          <textarea class="form-textarea" id="create-blog-content" rows="4" placeholder="Describe the clutch action, weapons used, squad strategy, kill count, or advice for fellow gamers..." required></textarea>
+        </div>
+
+        <div style="display:flex; gap:12px; margin-top:16px;">
+          <button type="submit" class="btn btn-primary btn-lg" style="flex:1;">
+            <span>🚀</span> Publish Post to Community
+          </button>
+          <button type="button" class="btn btn-secondary" onclick="document.getElementById('modal-create-blog').classList.remove('active');">
+            Cancel
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="sfx.js?v=20260921_14"></script>
+  <script src="particles.js?v=20260921_14"></script>
+  <script src="app.js?v=20260921_14"></script>
+</body>
+</html>
