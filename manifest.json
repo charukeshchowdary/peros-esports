@@ -7,13 +7,28 @@
   "start_url": "./index.html",
   "scope": "./",
   "display": "standalone",
-  "display_override": ["window-controls-overlay", "standalone", "minimal-ui"],
+  "display_override": ["window-controls-overlay", "tabbed", "standalone", "minimal-ui"],
   "background_color": "#080A10",
   "theme_color": "#FF5500",
   "orientation": "portrait-primary",
   "lang": "en-US",
   "dir": "ltr",
   "categories": ["games", "entertainment", "sports"],
+  "edge_side_panel": {
+    "preferred_width": 480
+  },
+  "launch_handler": {
+    "client_mode": "auto"
+  },
+  "share_target": {
+    "action": "./#esports-blog",
+    "method": "GET",
+    "params": {
+      "title": "title",
+      "text": "text",
+      "url": "url"
+    }
+  },
   "icons": [
     {
       "src": "assets/peros-logo.png",
